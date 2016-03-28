@@ -1,0 +1,51 @@
+
+PLAN
+==========
+- idea: system is an instant messenger system.
+- users have: username, password, contacts
+    - users can send messages to other users and receive messages from other users
+    - users have a contact list.
+
+ARCHITECTURE
+=================
+- How will the architecture handle messages when recipient is offline?
+    - if a user is offline then the system can persist the messages for the recipient in a datastore
+    - when the recipient later logs in, the system will check the datastore for offline messages and present them to the user.
+        - the system can present these offline messages to the user by sending them on his channel when he is logged in and then removing
+        them from the datastore.
+- user signup services should be decoupled from messaging services -- microservices
+
+
+TODO
+==============
+[] implement function to only return when rabbit is ready
+[] externalize chatmotor configuration so that it can be mapped into a running chatmotor container
+[] link chatmotor container to rabbitmq
+    [] Determine if we should use docker compose.
+[] use dockerized chatmotor in integration tests
+[] use a dockerized couch container for the datastore
+[] integration test
+    - creating accounts
+    - logging in
+    - sending messages to offline user
+    - retrieving offline messages upon login
+
+
+TODO - Later
+===============
+[] get rid of default usernames/passwords in rabbitmq
+[] setup docker registry on int3rw3b
+
+DONE
+========
+[x] use rabbit for integration tests
+
+
+NOTES
+===============
+
+http://facebook.github.io/react/ -- UI framework
+FLUX -- UI componenet updates
+
+container linking:
+https://docs.docker.com/userguide/dockerlinks/

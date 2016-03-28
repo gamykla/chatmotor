@@ -1,0 +1,5 @@
+tornado==4.2.1
+pika==0.10.0
+requests==2.7.0
+injector==0.9.1
+Fabric==1.10.2
